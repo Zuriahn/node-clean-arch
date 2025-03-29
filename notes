@@ -1,0 +1,2 @@
+Command to execute migration in a specific folder:
+    npx prisma migrate dev --schema=./src/infrastructure/persistence/schema.prisma

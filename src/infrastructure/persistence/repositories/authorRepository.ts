@@ -26,10 +26,10 @@ class AuthorRepository implements IAuthorRepository {
         });
     }
     async AddAsync(author: AuthorDto) {
-        this.#prismaClient.author.create({ data: author });
+        await this.#prismaClient.author.create({ data: author });
     }
     async UpdateAsync(author: AuthorDto) {
-        this.#prismaClient.author.update({
+        await this.#prismaClient.author.update({
             where: {
                 Id: author.Id
             },
@@ -37,7 +37,7 @@ class AuthorRepository implements IAuthorRepository {
         })
     }
     async DeleteAsync(author: AuthorDto) {
-        this.#prismaClient.author.delete({
+        await this.#prismaClient.author.delete({
             where: {
                 Id: author.Id
             }

@@ -27,6 +27,9 @@ class Address {
     if (!country || !state || !street || !zipcode) {
       return null;
     }
+    if(zipcode.length != 5){
+      return null;
+    }
     return new Address(country, state, street, zipcode);
   }
 

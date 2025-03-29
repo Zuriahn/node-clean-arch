@@ -19,16 +19,16 @@ async function CreateAuthorCommandHandler(
   next: NextFunction
 ) {
   const body = req.body;
-
-  if (Address.Create(body?.Country, body?.State, body?.Street, body?.Zipcode) == null) {
+  
+  const address = Address.Create(body?.Country, body?.State, body?.Street, body?.Zipcode);
+  if (address == null) {
     throw ErrorAuthor.AddressWithBadFormat();
   }
-  const address = Address.Create(body?.Country, body?.State, body?.Street, body?.Zipcode);
 
-  if (PhoneNumber.Create(body?.PhoneNumber) == null) {
+  const phoneNumber = PhoneNumber.Create(body?.PhoneNumber)
+  if (phoneNumber== null) {
     throw ErrorAuthor.PhoneNumberWithBadFormat();
   }
-  const phoneNumber = PhoneNumber.Create(body?.PhoneNumber)
 
   await authorRepository.AddAsync({
     Id: AuthorId.Value,

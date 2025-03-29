@@ -4,7 +4,7 @@ export interface IPhoneNumber {
 
 class PhoneNumber {
   Value: string;
-  #regex = "^+?52s?(d{2,3})s?d{4}s?d{4}$";
+  #regex = /^\+?52\s?(\d{2,3})\s?\d{4}\s?\d{4}$/;
   #defaultLength = 12;
 
   constructor(value?: string) {
